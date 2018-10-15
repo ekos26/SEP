@@ -9,13 +9,22 @@ const db = require('./database')
 // const Puppy = require('./puppy')
 // const Owner = require('./owner')
 
+const Students = require('./students')
+const Campuses = require('./campuses')
+
 // After you've required all of your models into this module, you should establish
 // associations (https://sequelize-guides.netlify.com/association-types/) between them here as well!
 // Example:
 //
 // Puppy.belongsTo(Owner)
 
+Students.belongsTo(Campuses)
+Students.hasOne(Campuses)
+Campuses.hasMany(Students)
+
 module.exports = {
   // Include your models in this exports object as well!
-  db
+  db,
+  Students,
+  Campuses
 }
