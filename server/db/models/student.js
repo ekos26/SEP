@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../db');
+const db = require('../database');
 
 const Students = db.define('students', {
     firstName: {
@@ -25,10 +25,14 @@ const Students = db.define('students', {
     },
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: ""
+        defaultValue: 'avatar.jpg'
     },
     gpa: {
-        type: Sequelize.FLOAT(0, 4.0),
+        type: Sequelize.FLOAT,
+        validate: {
+            min: 0.0,
+            max: 4.0,
+        }
     }
 });
 

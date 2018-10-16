@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../db')
+const db = require('../database')
 
 const Campuses = db.define('campuses', {
     name: {
@@ -11,15 +11,14 @@ const Campuses = db.define('campuses', {
     },
     imageUrl: {
         type: Sequelize.STRING,
-        defaultValue: ""
+        defaultValue: 'hogwarts.jpg'
     },
     address: {
         type: Sequelize.STRING,
         allowNull: false
     },
     description: {
-        type: Sequelize.STRING,
-
+        type: Sequelize.TEXT,
     }
 });
 
