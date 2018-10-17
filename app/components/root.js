@@ -1,34 +1,49 @@
 import React from 'react'
 import CampusList from './CampusList'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import StudentList from './StudentList'
 import Campus from './Campus'
 import Student from './Student'
 import NavBar from './NavBar'
+import { fetchCampuses } from '../reducers/campusesReducer';
+import { fetchStudents } from '../reducers/studentsReducer';
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
-const Root = () => {
-  return (
-    <BrowserRouter>
-    <div>
-      <nav>
-        Welcome!
-      </nav>
-      <main>
-        <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
-        <div>
+class Root extends React.Component {
+
+  componentDidMount() {
+    this.props.getAllCampuses();
+    this.props.getAllStudents();
+  }
+
+  render() {
+    return (
+      <div>
+        <nav>
           <NavBar />
-          <Switch>
-          <Route exact path = "/campuses" component={CampusList} />
-          <Route exact path = "/students" component={StudentList} />
-          <Route exact path = "/campuses/campuses:Id" component={Campus} />
-          <Route exact path ="/students/student:Id" component={Student} />
-          </Switch>
-        </div>
-      </main>
-    </div>
-    </BrowserRouter>
-  )
+        </nav>
+        <main>
+          <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
+          <div>
+            <Switch>
+            <Route exact path = "/campuses" component={CampusList} />
+            <Route exact path = "/students" component={StudentList} />
+            <Route path = "/campuses/campuses:Id" component={Campus} />
+            <Route path = "/students/student:Id" component={Student} />
+            </Switch>
+          </div>
+        </main>
+      </div>
+    )
+  }
 }
 
-export default Root
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllCampuses: () => dispatch(fetchCampuses()),
+    getAllStudents: () => dispatch(fetchStudents())
+  }
+}
 
+export default withRouter(connect(null, mapDispatchToProps)(Root));
