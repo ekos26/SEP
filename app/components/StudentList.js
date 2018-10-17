@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom'
 import Student from './Student'
 
 
-class StudentList extends React.Component {
+const StudentList = props => {
   
-    render () {
         return (
           <div>
           <h2>List of Students</h2>
           <ul>
-          { this.props.students.map(student => (
+          { props.students.map(student => (
                 <li key = {student.id}>
                   <Link to={`/students/${student.id}`}>{`${student.firstName} ${student.lastName}`}
                   </Link>
@@ -20,8 +19,8 @@ class StudentList extends React.Component {
           </ul>
           </div>
         )
-    }
-  }
+}
+  
   
   const mapStateToProps = state => {
     return {

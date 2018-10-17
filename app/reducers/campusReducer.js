@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const singleCampusInitialState = {};
 
-const GET_ONE_CAMPUS = "GET_ONE_CAMPUS";
+const GET_ONE_CAMPUS = 'GET_ONE_CAMPUS';
 
 const getOneCampus = campus => {
   return {
@@ -23,7 +23,7 @@ export const fetchOneCampus = id => {
   };
 };
 
-export const singleCampusReducer = (state = singleCampusInitialState, action) => {
+export const campusReducer = (state = singleCampusInitialState, action) => {
   switch (action.type) {
     case GET_ONE_CAMPUS:
       return action.campus;

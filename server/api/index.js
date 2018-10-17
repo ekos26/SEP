@@ -36,6 +36,15 @@ router.get('/campuses/:campusId', async (req, res, next) => {
     }
 });
 
+router.post('/campuses', async (req, res, next) => {
+    try {
+      const newCampus = await Campus.create(req.body);
+      res.send(newCampus);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 
 router.get('/students', async (req, res, next) => {
     try {
@@ -56,6 +65,15 @@ router.get('/students/:studentId', async (req, res, next) => {
         next(error);
     }
 });
+
+router.post('/students', async (req, res, next) => {
+    try {
+      const newStudent = await Student.create(req.body);
+      res.send(newStudent);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of

@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const singleStudentInitialState = {};
 
-const GET_ONE_STUDENT = "GET_ONE_STUDENT";
+const GET_ONE_STUDENT = 'GET_ONE_STUDENT';
 
 const getOneStudent = student => {
   return {
@@ -23,7 +23,7 @@ export const fetchOneStudent = id => {
   };
 };
 
-export const singleStudentReducer = (state = singleStudentInitialState, action) => {
+export const studentReducer = (state = singleStudentInitialState, action) => {
   switch (action.type) {
     case GET_ONE_STUDENT:
       return action.student;

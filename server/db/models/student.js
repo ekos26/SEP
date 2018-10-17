@@ -28,7 +28,7 @@ const Student = db.define('student', {
         defaultValue: 'avatar.jpg'
     },
     gpa: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DECIMAL,
         validate: {
             min: 0.0,
             max: 4.0,

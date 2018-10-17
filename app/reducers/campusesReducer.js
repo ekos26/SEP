@@ -23,7 +23,7 @@ export const fetchCampuses = () => {
     }
 }
 
-export const campusReducer = (state = campusInitialState, action) => {
+export const campusesReducer = (state = campusInitialState, action) => {
     switch (action.type) {
         case GET_CAMPUSES:
             return action.campuses;

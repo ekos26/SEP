@@ -23,7 +23,7 @@ export const fetchStudents = () => {
     }
 }
 
-export const studentReducer = (state = studentInitialState, action) => {
+export const studentsReducer = (state = studentInitialState, action) => {
     switch (action.type) {
         case GET_STUDENTS:
             return action.students;
