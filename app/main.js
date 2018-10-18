@@ -8,9 +8,9 @@ import Root from './components/root'
 
 render(
   <Provider store={store}>
-    <BrowserRouter>
-      <Root />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Root />
+      </BrowserRouter>
   </Provider>,
   document.getElementById('main')
 )

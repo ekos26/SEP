@@ -34,7 +34,7 @@ class Student extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    student: state.singleStudent
+    student: state.student
   }
 }
 

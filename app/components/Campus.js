@@ -11,11 +11,12 @@ class Campus extends React.Component {
 
           const campus = this.props.campus;
           const students = this.props.students;
+
             return (
               <div>
               <h1>{campus.name}</h1>
-              <a href='#'>
-                <img src ={campus.imageUrl} />
+              <a href="#">
+                <img src ={campus.imageUrl} alt="image" />
               </a>
               <h3>Address: {campus.address}</h3>
               <h3>Image: {campus.imageUrl}</h3>
@@ -38,7 +39,7 @@ class Campus extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    campus: state.singleCampus
+    campus: state.campus
   }
 }
 

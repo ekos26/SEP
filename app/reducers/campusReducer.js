@@ -18,7 +18,7 @@ export const fetchOneCampus = id => {
       const action = getOneCampus(data);
       dispatch(action);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 };
